@@ -18,6 +18,7 @@ bool comparepbw(Rule r1, Rule r2)
 }
 int main()
 {
+   
     int n,m;
     cin>>n>>m;
 
@@ -38,7 +39,31 @@ int main()
         ara[i].obj=i;
         ara[i].pbw=profit[i]/weight[i];
     }
-    sort(ara,ara+n,comparepbw)
+    sort(ara,ara+n,comparepbw);
+     double X[n];
+    memset(X,0, sizeof(X));
+    double RW=m;
+    for(int i=0;i<n;i++)
+    {
+        if(RW>=weight[ara[i].obj])
 
+        {
+            RW=RW-weight[ara[i].obj];
+            X[ara[i].obj]=1;
+        }
+        else
+        {
+            X[ara[i].obj]=RW/weight[ara[i].obj];
+            RW=0;
+        }
+        
+        
+    }
+    double maxprof=0;
+        for(int i=0;i<n;i++)
+        {
+            maxprof=maxprof+(X[i]*profit[i]);
+        }
+        cout<<maxprof<<endl;
 
 }
