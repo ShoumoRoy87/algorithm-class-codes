@@ -39,5 +39,37 @@ int main()
         }
         cout<<endl;
     }
+    int i=n,j=m;
+    string answer;
+    while(i!=0)
+    {
+
+        if(str1[i-1]==str2[j-1] && LCS[i][j]==1+LCS[i-1][j-1])
+        {
+
+           answer.push_back(str2[j-1]);
+            i=i-1;
+            j=j-1;
+        }
+        else
+        {
+            if(LCS[i][j]==LCS[i-1][j])
+            {
+                i=i-1;
+                j=j;
+            }
+            else
+            {
+                i=i;
+                j=j-1;
+            }
+        }
+    }
+    for(int i=answer.size()-1;i>=0;i--)
+    {
+
+        cout<<answer[i];
+    }
+    cout<<endl;
 
 }
