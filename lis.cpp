@@ -2,33 +2,30 @@
 using namespace std;
 int main()
 {
-    //lis length
     int n;
     cin>>n;
-    int List1[n],LIS[n];
+    int ara[n];
     for(int i=0;i<n;i++)
     {
-        cin>>List1[i];
+        cin>>ara[i];
+    }
+    int LIS[n];
+    for(int i=0;i<n;i++)
+    {
         LIS[i]=1;
     }
     for(int i=1;i<n;i++)
     {
         for(int j=0;j<i;j++)
         {
-            if(List1[j]<List1[i])
+            if(ara[i]>ara[j])
             {
-                LIS[i]= max(LIS[i],1+LIS[j]);
+                LIS[i]=max(LIS[i],1+LIS[j]);
             }
         }
     }
-    //length always last e nao thakte pare tokhn
-    int mx= INT_MIN;
     for(int i=0;i<n;i++)
     {
-       if(mx<LIS[i])
-       {
-        mx=LIS[i];
-       }
+        cout<<LIS[i]<<" ";
     }
-    cout<<"LIS length:"<<mx<<endl;
 }
