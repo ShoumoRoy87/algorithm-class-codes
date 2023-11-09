@@ -1,3 +1,4 @@
+//create and represent an undirected graph using adjacency matrix
 #include<bits/stdc++.h>
 using namespace std;
 
